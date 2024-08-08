@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Count Click</title>
+</head>
+<body>
+  <div id="root"></div>
+
+
+  <!-- react 엔진 -->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <!-- react dom -->
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <!-- JSX 변환을 위한 babel -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <!-- code -->
+  <script type="text/babel">
+    // html 태그 연결
+    const root = document.getElementById("root");
+    
+    // CountClick
+    function CountClick() {
+      const [count, setCount] = React.useState(0);
+      const onClick = () => {
+        setCount((current) => current+1);
+      };
+      // 결과값으로 html에 삽입할 것들을 냄
+      return (
+        <div>
+          <h1>Counter</h1>
+          <p>Total clicked: {count}</p>
+          <button onClick={onClick}>click here</button>
+        </div>
+      )
+      render();
+    };
+
+    // render
+    function render() {
+      ReactDOM.render(<CountClick />, root); // 첫문자가 대문자임을 주의
+    };
+
+    // 랜더링
+    render();
+  </script>
+</body>
+</html>
